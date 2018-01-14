@@ -1,2 +1,3 @@
-# personal-site
-Raquel's personal site
+# learning-test
+Raquel's learning repo
+lorem ipsum
