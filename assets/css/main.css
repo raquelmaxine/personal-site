@@ -44,7 +44,8 @@
 
 :root {
     --black: #222;
-    --white: #fff;
+    --white: #d5e5f2;
+    --pink: #f6b6bd;
     --base-unit: 1rem;
     --base-scale: 1em;
     --base-space: 1vw;
@@ -61,6 +62,7 @@
     --space-md: calc( (var(--base-space) * 4) * 1);
     --space-lg: calc( (var(--base-space) * 4) * 2);
     --space-xl: calc( (var(--base-space) * 4) * 3);
+    --translucent: 0.25;
 }
 
 *,
@@ -86,9 +88,9 @@ body {
     min-width: 100vw;
     min-height: 100vh;
 
-    background-color: var(--black);
+    background-color: var(--white);
 
-    color: var(--white);
+    color: var(--black);
     font-family: "PT Serif", "Apple Color Emoji", serif;
     font-weight: 400;
     font-size: var(--scale-md);
@@ -113,58 +115,10 @@ body {
     }
 }
 
-main {
-    display: flex;
-    height: 100vh;
-}
-
-@media screen and (max-width: 40rem) {
-    main {
-        flex-direction: column;
-    }
-}
-
-aside {
-    display: block;
-    flex: 1 1 auto;
-
-    background-image: url("../img/raquel-dreesen.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-@media screen and (max-width: 40rem) {
-    aside {
-        height: 0;
-    }
-}
-
-article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: var(--space-md);
-}
-
-@media screen and (min-width: 40rem) {
-    article {
-        width: 50%;
-        max-width: 40rem;
-        padding: var(--space-md);
-    }
-}
-
-article > *:not(:last-child) {
-    margin-bottom: var(--unit-lg);
-}
-
 h1,
 h2,
 h3 {
     line-height: 1;
-    text-align: center;
 }
 
 h1 {
@@ -180,9 +134,18 @@ h1 {
 }
 
 h2 {
-    font-family: "Helvetica Neue";
+    color: var(--pink);
     font-size: var(--scale-sm);
-    letter-spacing: var(--scale-xxs);
+}
+
+figcaption {
+    font-size: var(--scale-sm);
+}
+
+h2,
+figcaption {
+    font-family: "Avenir", sans-serif;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
 }
 
@@ -192,8 +155,140 @@ hr {
     height: var(--scale-xxs);
     border: 0;
 
-    opacity: 0.125;
-    background: var(--white);
+    opacity: var(--translucent);
+    background: currentColor;
 
     line-height: 1;
+}
+
+
+a {
+    color: currentColor;
+    text-decoration: underline;
+
+    text-decoration-color: var(--pink);
+    text-decoration-style: dotted;
+    text-decoration-skip: ink;
+}
+
+a:hover {
+    text-decoration-style: solid;
+}
+
+.intro {
+    height: 95vh;
+
+    background-color: var(--black);
+
+    color: var(--white);
+}
+
+@media screen and (max-width: 40rem) {
+    .intro {
+        flex-direction: column;
+    }
+}
+
+.profile {
+    display: block;
+
+    background-color: rgba(255,255,255,0.15);
+    background-image: url("../img/raquel-dreesen.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 40rem) {
+    .intro__image {
+        profile: 0;
+    }
+}
+
+article {
+    padding: var(--space-md);
+}
+
+.bio {
+    background-color: var(--white);
+
+    color: var(--black);
+}
+
+.footer-main {
+    padding: var(--space-md);
+    border-top: 1px solid var(--black);
+
+    opacity: var(--translucent);
+
+    font-family: "Avenir", sans-serif;
+    font-size: var(--scale-sm);
+}
+
+.timeline {
+    position: relative;
+
+    justify-content: space-around !important;
+    height: 100%;
+    margin-right: var(--space-md);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+.timeline::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+
+    border-left: 1px solid var(--black);
+
+    opacity: var(--translucent);
+}
+
+.timeline li {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    max-width: 15rem;
+    padding: var(--space-sm);
+
+    background-color: var(--white);
+
+    list-style: none;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-expand {
+    flex: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-content > *:not(:last-child) {
+    margin-bottom: var(--unit-lg);
+}
+
+.text-center {
+    text-align: center;
 }
