@@ -1,0 +1,278 @@
+@font-face {
+    font-family: 'Six Caps';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('Six Caps'), local('SixCaps'), url(https://fonts.gstatic.com/s/sixcaps/v8/kHNZYYf63qmp8C-aw9f9pnYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400;
+
+    src: local('EB Garamond Italic'), local('EBGaramond-Italic'), url(https://fonts.gstatic.com/s/ebgaramond/v9/a7ivpTe3zZzednsAv-J8JQeOulFbQKHxPa89BaxZzA0.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('EB Garamond Regular'), local('EBGaramond-Regular'), url(https://fonts.gstatic.com/s/ebgaramond/v9/kYZt1bJ8UsGAPRGnkXPeFYgp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+:root {
+    --black: #222;
+    --white: #fff;
+    --grey: #ccc;
+    --pink: #f6b6bd;
+    --headline: 'Six Caps';
+    --serif: 'EB Garamond', 'Garamond', 'Times New Roman', serif;
+    --sans: 'Avenir', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --base-unit: 1rem;
+    --base-scale: 1em;
+    --base-space: 1vw;
+    --unit-md: calc(var(--base-unit) * 1);
+    --unit-lg: calc(var(--base-unit) * 2);
+    --unit-xl: calc(var(--base-unit) * 4);
+    --unit-xxl: calc(var(--base-unit) * 8);
+    --scale-xxs: calc( (var(--base-scale) / 4) * 1);
+    --scale-xs: calc( (var(--base-scale) / 4) * 2);
+    --scale-sm: calc( (var(--base-scale) / 4) * 3);
+    --scale-md: calc( (var(--base-scale) / 4) * 4);
+    --scale-lg: calc( (var(--base-scale) / 4) * 5);
+    --space-sm: calc( (var(--base-space) * 4) / 2);
+    --space-md: calc( (var(--base-space) * 4) * 1);
+    --space-lg: calc( (var(--base-space) * 4) * 2);
+    --space-xl: calc( (var(--base-space) * 4) * 3);
+    --translucent: 0.25;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: var(--space-sm);
+
+    background-color: var(--white);
+
+    color: var(--black);
+    font-family: var(--serif), 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: 400;
+    font-size: var(--scale-md);
+    line-height: 1.6;
+}
+
+@media screen and (min-width: 40rem) {
+    body {
+        font-size: calc(var(--base-unit) * 1.2);
+    }
+}
+
+@media screen and (min-width: 70rem) {
+    body {
+        font-size: calc(var(--base-unit) * 1.4);
+    }
+}
+
+@media screen and (min-width: 100rem) {
+    body {
+        font-size: calc(var(--base-unit) * 1.6);
+    }
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+}
+
+h1 {
+    font-family: var(--headline);
+    font-size: var(--unit-xl);
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 40rem) {
+    h1 {
+        font-size: calc(112.5% + 10vw);
+    }
+}
+
+h2 {
+    color: var(--pink);
+    font-size: var(--scale-sm);
+}
+
+figcaption {
+    font-size: var(--scale-sm);
+}
+
+h2,
+figcaption {
+    font-family: var(--sans);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+hr {
+    display: inline-block;
+    width: 25%;
+    height: var(--scale-xxs);
+    border: 0;
+
+    opacity: var(--translucent);
+    background: currentColor;
+
+    line-height: 1;
+}
+
+
+a {
+    color: currentColor;
+    text-decoration: underline;
+
+    text-decoration-color: var(--pink);
+    text-decoration-style: dotted;
+    text-decoration-skip: ink;
+}
+
+a:hover {
+    text-decoration-style: solid;
+}
+
+.intro {
+    height: calc(100vh - (calc(var(--space-sm) * 2)));
+
+    border: 1px solid var(--grey);
+}
+
+@media screen and (max-width: 40rem) {
+    .intro {
+        flex-direction: column;
+    }
+}
+
+.profile {
+    display: block;
+
+    border: 2vw solid var(--white);
+
+    background-color: rgba(255, 255, 255, 0.15);
+    background-image: url('../img/raquel-dreesen.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 40rem) {
+    .intro__image {
+        profile: 0;
+    }
+}
+
+article {
+    padding: var(--space-md);
+}
+
+.bio {
+    background-color: var(--white);
+
+    color: var(--black);
+}
+
+.footer-main {
+    padding: var(--space-md);
+    border: 1px solid var(--grey);
+
+    font-family: var(--sans);
+    font-size: var(--scale-sm);
+}
+
+.timeline {
+    position: relative;
+
+    justify-content: space-around !important;
+    height: 100%;
+    margin-right: var(--space-md);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+.timeline::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+
+    border-left: 1px solid var(--grey);
+}
+
+.timeline li {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    max-width: 15rem;
+    padding: var(--space-sm);
+
+    background-color: var(--white);
+
+    list-style: none;
+}
+
+img,
+svg {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-expand {
+    flex: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-content > *:not(:last-child) {
+    margin-bottom: var(--unit-lg);
+}
+
+.text-center {
+    text-align: center;
+}
