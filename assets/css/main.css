@@ -8,44 +8,31 @@
 }
 
 @font-face {
-    font-family: 'PT Serif';
+    font-family: 'EB Garamond';
     font-style: italic;
     font-weight: 400;
 
-    src: local('PT Serif Italic'), local('PTSerif-Italic'), url(https://fonts.gstatic.com/s/ptserif/v9/03aPdn7fFF3H6ngCgAlQzAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+    src: local('EB Garamond Italic'), local('EBGaramond-Italic'), url(https://fonts.gstatic.com/s/ebgaramond/v9/a7ivpTe3zZzednsAv-J8JQeOulFbQKHxPa89BaxZzA0.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
 }
 
 @font-face {
-    font-family: 'PT Serif';
-    font-style: italic;
-    font-weight: 700;
-
-    src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url(https://fonts.gstatic.com/s/ptserif/v9/Foydq9xJp--nfYIx2TBz9WaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-}
-
-@font-face {
-    font-family: 'PT Serif';
+    font-family: 'EB Garamond';
     font-style: normal;
     font-weight: 400;
 
-    src: local('PT Serif'), local('PTSerif-Regular'), url(https://fonts.gstatic.com/s/ptserif/v9/I-OtoJZa3TeyH6D9oli3iXYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-}
-@font-face {
-    font-family: 'PT Serif';
-    font-style: normal;
-    font-weight: 700;
-
-    src: local('PT Serif Bold'), local('PTSerif-Bold'), url(https://fonts.gstatic.com/s/ptserif/v9/QABk9IxT-LFTJ_dQzv7xpIgp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
+    src: local('EB Garamond Regular'), local('EBGaramond-Regular'), url(https://fonts.gstatic.com/s/ebgaramond/v9/kYZt1bJ8UsGAPRGnkXPeFYgp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
 }
 
 :root {
     --black: #222;
-    --white: #d5e5f2;
+    --white: #fff;
+    --grey: #ccc;
     --pink: #f6b6bd;
+    --headline: 'Six Caps';
+    --serif: 'EB Garamond', 'Garamond', 'Times New Roman', serif;
+    --sans: 'Avenir', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
     --base-unit: 1rem;
     --base-scale: 1em;
     --base-space: 1vw;
@@ -87,11 +74,12 @@ html {
 body {
     min-width: 100vw;
     min-height: 100vh;
+    padding: var(--space-sm);
 
     background-color: var(--white);
 
     color: var(--black);
-    font-family: "PT Serif", "Apple Color Emoji", serif;
+    font-family: var(--serif), 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-weight: 400;
     font-size: var(--scale-md);
     line-height: 1.6;
@@ -99,19 +87,19 @@ body {
 
 @media screen and (min-width: 40rem) {
     body {
-        font-size: calc(var(--base-unit) * 1.125);
+        font-size: calc(var(--base-unit) * 1.2);
     }
 }
 
 @media screen and (min-width: 70rem) {
     body {
-        font-size: calc(var(--base-unit) * 1.25);
+        font-size: calc(var(--base-unit) * 1.4);
     }
 }
 
 @media screen and (min-width: 100rem) {
     body {
-        font-size: calc(var(--base-unit) * 1.5);
+        font-size: calc(var(--base-unit) * 1.6);
     }
 }
 
@@ -122,7 +110,7 @@ h3 {
 }
 
 h1 {
-    font-family: "Six Caps";
+    font-family: var(--headline);
     font-size: var(--unit-xl);
     text-transform: uppercase;
 }
@@ -144,7 +132,7 @@ figcaption {
 
 h2,
 figcaption {
-    font-family: "Avenir", sans-serif;
+    font-family: var(--sans);
     letter-spacing: 0.25em;
     text-transform: uppercase;
 }
@@ -176,11 +164,9 @@ a:hover {
 }
 
 .intro {
-    height: 95vh;
+    height: calc(100vh - (calc(var(--space-sm) * 2)));
 
-    background-color: var(--black);
-
-    color: var(--white);
+    border: 1px solid var(--grey);
 }
 
 @media screen and (max-width: 40rem) {
@@ -192,8 +178,10 @@ a:hover {
 .profile {
     display: block;
 
-    background-color: rgba(255,255,255,0.15);
-    background-image: url("../img/raquel-dreesen.jpg");
+    border: 2vw solid var(--white);
+
+    background-color: rgba(255, 255, 255, 0.15);
+    background-image: url('../img/raquel-dreesen.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -216,11 +204,9 @@ article {
 
 .footer-main {
     padding: var(--space-md);
-    border-top: 1px solid var(--black);
+    border: 1px solid var(--grey);
 
-    opacity: var(--translucent);
-
-    font-family: "Avenir", sans-serif;
+    font-family: var(--sans);
     font-size: var(--scale-sm);
 }
 
@@ -235,7 +221,7 @@ article {
 }
 
 .timeline::after {
-    content: "";
+    content: '';
 
     position: absolute;
     top: 0;
@@ -243,9 +229,7 @@ article {
     left: 50%;
     z-index: 0;
 
-    border-left: 1px solid var(--black);
-
-    opacity: var(--translucent);
+    border-left: 1px solid var(--grey);
 }
 
 .timeline li {
@@ -261,11 +245,11 @@ article {
     list-style: none;
 }
 
-img {
+img,
+svg {
     display: inline-block;
     max-width: 100%;
 }
-
 
 .flex {
     display: flex;
